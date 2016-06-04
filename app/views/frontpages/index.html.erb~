@@ -1,1 +1,4 @@
 <p> index page </p>
+
+<%= link_to "View", :action => "view" %>
+<p> <%=notice %></p>
