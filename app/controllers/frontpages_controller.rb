@@ -3,9 +3,19 @@ class FrontpagesController < ApplicationController
 	end
 
 	def show
+
 	end
 
 	def create
+	end
+
+	def view
+		input = params[:input]
+	
+		flash[:notice] = "#{input}"
+		redirect_to :action => "view"
+
+
 	end
 
 	def edit

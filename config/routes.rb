@@ -31,6 +31,9 @@ Rails.application.routes.draw do
   #     resources :comments, :sales
   #     resource :seller
   #   end
+      resources :frontpages do
+        post :view, :on => :collection
+      end
 
   # Example resource route with more complex sub-resources:
   #   resources :products do
