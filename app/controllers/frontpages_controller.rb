@@ -1,4 +1,8 @@
 class FrontpagesController < ApplicationController
+	
+	def new
+
+	end
 	def index
 	end
 
@@ -9,11 +13,11 @@ class FrontpagesController < ApplicationController
 	def create
 	end
 
-	def view
-		input = params[:input]
-	
-		flash[:notice] = "#{input}"
-		redirect_to :action => "view"
+	def main
+		@input = params[:input]
+		flash[:notice] = "#{@input}"
+		
+
 
 
 	end
@@ -25,6 +29,14 @@ class FrontpagesController < ApplicationController
 	end
 
 	def update
+	end
+
+	def about
+	end
+
+	def latest
+		
+		
 	end
 
 

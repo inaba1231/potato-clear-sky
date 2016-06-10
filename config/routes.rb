@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  
+  get 'new'    => 'heatmaps#new'
+  get 'about'  => 'frontpages#about'
+  get 'latest' => 'frontpages#latest'
+  post '/main' => 'frontpages#main'
+  get 'main'   => 'frontpages#main'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -31,9 +38,7 @@ Rails.application.routes.draw do
   #     resources :comments, :sales
   #     resource :seller
   #   end
-      resources :frontpages do
-        post :view, :on => :collection
-      end
+   
 
   # Example resource route with more complex sub-resources:
   #   resources :products do
