@@ -84,3 +84,5 @@ production:
   database: clear_sky_production
   username: clear_sky
   password: <%= ENV['CLEAR_SKY_DATABASE_PASSWORD'] %>
+  config.serve_static_assets = true
+  config.assets.compile = true
