@@ -1,4 +1,5 @@
 require 'nokogiri'
+require 'rmagick'
 require 'open-uri'
 class FrontpagesController < ApplicationController
 	
@@ -49,7 +50,23 @@ class FrontpagesController < ApplicationController
   		day = time.strftime("%d")
   		hour = time.strftime("%H")
   		min = time.strftime("%M")
-  		@latestHeatmap = image_path = "http://www.weather.gov.sg/files/rainarea/50km/v2/dpsri_70km_#{year}#{month}#{day}#{hour}#{min}0000dBR.dpsri.png"
+  		image_path = "http://www.weather.gov.sg/files/rainarea/50km/v2/dpsri_70km_#{year}#{month}#{day}#{hour}#{min}0000dBR.dpsri.png"
+  		@heatmap_name = image_path.split("v2/")[1]
+
+  		open(image_path) { |f|
+  			File.open("./app/assets/images/temp.png", "wb") do |file|
+  				file.puts f.read
+  			end
+
+  		}
+
+  		heatmap ="./app/assets/images/temp.png"
+
+  		map_heatmap = Magick::Image.read(heatmap).first
+  		scale_heatmap = map_heatmap.adaptive_resize(853, 479)
+
+  		base = Magick::Image.read("./app/assets/images/base-853.png").first
+  		base.composite(scale_heatmap, 0, 0, Magick::OverCompositeOp).write("./app/assets/images/overlay.png")
 
 		
 		
