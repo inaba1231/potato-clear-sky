@@ -16,6 +16,9 @@ class FrontpagesController < ApplicationController
 	def create
 	end
 
+	def contribute
+	end
+
 	def main
 		@input = params[:input]
 		flash[:notice] = "#{@input}"
@@ -73,6 +76,9 @@ class FrontpagesController < ApplicationController
 	end
 
 	def contact
+	end
+
+	def past
 	end
 
 

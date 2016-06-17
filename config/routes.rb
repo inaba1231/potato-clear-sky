@@ -6,12 +6,15 @@ Rails.application.routes.draw do
   post '/main' => 'frontpages#main'
   get 'main'   => 'frontpages#main'
   get 'contact'=> 'frontpages#contact'
+  get 'contribute' => 'frontpages#contribute'
+  get 'index' => 'public#index'
+  get 'past' => 'frontpages#past'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  #  root 'frontpages#index'
+    #root 'frontpages#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
