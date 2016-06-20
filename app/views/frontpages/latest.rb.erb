@@ -20,12 +20,12 @@
 		    west: 103.5521
 		};
 
-	  	var historicalOverlay = new google.maps.GroundOverlay(<%=@latestTime %>,
+	  	var overlay = new google.maps.GroundOverlay(<%=@latestTime %>,
 	  		bounds,
 	  		{
 	  			opacity: 1
 	  		});
-	  	historicalOverlay.setMap(map);
+	  	overlay.setMap(map);
 
 	  	/*
 	  	var ne = new google.maps.Marker({
@@ -42,6 +42,6 @@
 	  	*/
   	}
 </script>
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCzs7lxzMPK6S-jX5YB2n7Ff3SdMQ2PJIE &callback=initMap">
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCzs7lxzMPK6S-jX5YB2n7Ff3SdMQ2PJIE&callback=initMap">
 </script>
 <img alt=@heatmap_name src="/assets/overlay.png" />
