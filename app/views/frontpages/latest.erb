@@ -1,3 +1,4 @@
+url = <%=@image_path %>
 <h1>Current weather</h1>
 
 
@@ -20,7 +21,7 @@
 		    west: 103.5521
 		};
 
-	  	var historicalOverlay = new google.maps.GroundOverlay(<%=@image_path %>,
+	  	var historicalOverlay = new google.maps.GroundOverlay(url,
 	  		bounds,
 	  		{
 	  			opacity: 1
