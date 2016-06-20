@@ -53,10 +53,10 @@ class FrontpagesController < ApplicationController
   		day = time.strftime("%d")
   		hour = time.strftime("%H")
   		min = time.strftime("%M")
-  		image_path = "http://www.weather.gov.sg/files/rainarea/50km/v2/dpsri_70km_#{year}#{month}#{day}#{hour}#{min}0000dBR.dpsri.png"
-  		@heatmap_name = image_path.split("v2/")[1]
+  		@image_path = "http://www.weather.gov.sg/files/rainarea/50km/v2/dpsri_70km_#{year}#{month}#{day}#{hour}#{min}0000dBR.dpsri.png"
+  		@heatmap_name = @image_path.split("v2/")[1]
 
-  		open(image_path) { |f|
+  		open(@image_path) { |f|
   			File.open("./app/assets/images/temp.png", "wb") do |file|
   				file.puts f.read
   			end
