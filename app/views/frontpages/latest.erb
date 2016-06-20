@@ -1,4 +1,3 @@
-url = <%=@image_path %>
 <h1>Current weather</h1>
 
 
@@ -8,6 +7,8 @@ url = <%=@image_path %>
 </div>
 <script>
 	function initMap() {
+		var heatmap_url = <%=@image_path %>;
+
 		var map = new google.maps.Map(document.getElementById('map'), {
 	    	zoom: 11,
 			minZoom: 11,
@@ -21,7 +22,7 @@ url = <%=@image_path %>
 		    west: 103.5521
 		};
 
-	  	var historicalOverlay = new google.maps.GroundOverlay(url,
+	  	var historicalOverlay = new google.maps.GroundOverlay(heatmap_url,
 	  		bounds,
 	  		{
 	  			opacity: 1
