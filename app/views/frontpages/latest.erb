@@ -20,9 +20,9 @@
 		    west: 103.5521
 		};
 
-	  	var historicalOverlay = new google.maps.GroundOverlay("http://www.weather.gov.sg/files/rainarea/50km/v2/dpsri_70km_2016061013050000dBR.dpsri.png"
-	  		, bounds
-	  		, {
+	  	var historicalOverlay = new google.maps.GroundOverlay(<%=@latestTime %>,
+	  		bounds,
+	  		{
 	  			opacity: 1
 	  		});
 	  	historicalOverlay.setMap(map);
