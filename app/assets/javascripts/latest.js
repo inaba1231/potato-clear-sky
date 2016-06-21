@@ -1,4 +1,5 @@
 function initMap() {
+  
   var origin_place_id = null;
   var destination_place_id = null;
   var travel_mode = google.maps.TravelMode.WALKING;
@@ -6,9 +7,9 @@ function initMap() {
 	var map = new google.maps.Map(document.getElementById('map'), {
     	zoom: 11,
 		  minZoom: 11,
-    	center: {lat: 1.31505, lng: 103.8448}
-      mapTypeControl: false,
-  	});
+    	center: {lat: 1.31505, lng: 103.8448},
+      mapTypeControl: false
+  });
 /*
   var directionsService = new google.maps.DirectionsService;
   var directionsDisplay = new google.maps.DirectionsRenderer;
