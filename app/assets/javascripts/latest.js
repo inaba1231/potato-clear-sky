@@ -98,6 +98,7 @@ function initMap() {
     });
   }
 
+  /*
   var heatmap_url = $("#map").data("heatmap");
 
 	var bounds = {
@@ -113,6 +114,7 @@ function initMap() {
 			opacity: 1
 		});
 	historicalOverlay.setMap(map);
+  */
 
 	/*
 	var northeast = new google.maps.Marker({
