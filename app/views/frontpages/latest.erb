@@ -2,6 +2,8 @@
 
 <h6>updated at <%=@latestTime %></h6>
 
+<div id="map" data-heatmap="<%=@image_path %>"></div>
+
 <input id="origin-input" class="controls" type="text"
     placeholder="Enter an origin location">
 
@@ -18,9 +20,6 @@
   <input type="radio" name="type" id="changemode-driving">
   <label for="changemode-driving">Driving</label>
 </div>
-
-
-<div id="map" data-heatmap="<%=@image_path %>"></div>
 
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCzs7lxzMPK6S-jX5YB2n7Ff3SdMQ2PJIE&libraries=places&callback=initMap">
 </script>
