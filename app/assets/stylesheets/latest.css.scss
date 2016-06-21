@@ -1,5 +1,10 @@
+#map {
+  width: 853px;
+  height: 479px;
+}
+
 .controls {
-  margin-top: 10px;
+  margin-bottom: 10px;
   border: 1px solid transparent;
   box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -43,9 +48,4 @@ input[type="radio"] {
 #origin-input:focus,
 #destination-input:focus {
   border-color: #4d90fe;
-}
-
-#map {
-  width: 853px;
-  height: 479px;
 }
