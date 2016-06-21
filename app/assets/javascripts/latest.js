@@ -1,5 +1,5 @@
 function initMap() {
-	var heatmap_url = '<%=@image_path %>';
+	var heatmap_url = '<%=j@image_path %>';
 
 	var map = new google.maps.Map(document.getElementById('map'), {
     	zoom: 11,
