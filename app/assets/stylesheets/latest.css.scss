@@ -34,9 +34,13 @@
   padding: 5px 11px 0px 11px;
 }
 
+input[type="radio"] {
+  margin-top: -1px;
+  vertical-align: middle;
+}
+
 #mode-selector label {
   font-family: Roboto;
   font-size: 13px;
   font-weight: 300;
-  padding-top: 0px;
 }
