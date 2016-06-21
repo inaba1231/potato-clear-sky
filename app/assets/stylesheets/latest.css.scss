@@ -1,7 +1,6 @@
 .controls {
   margin-top: 10px;
   border: 1px solid transparent;
-  border-radius: 2px 0 0 2px;
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   height: 32px;
@@ -9,10 +8,10 @@
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
 
-
 #origin-input,
 #destination-input {
   background-color: #fff;
+  border-radius: 2px 0 0 2px;
   font-family: Roboto;
   font-size: 15px;
   font-weight: 300;
@@ -30,6 +29,7 @@
 #mode-selector {
   color: #fff;
   background-color: #4d90fe;
+  border-radius: 2px 2px 2px 2px;
   margin-left: 12px;
   padding: 5px 11px 0px 11px;
   width: 222px;
