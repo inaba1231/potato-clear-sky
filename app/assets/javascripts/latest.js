@@ -125,7 +125,7 @@ function initMap() {
 	Overlay.setMap(map);
 
   var b = map.getBounds();
-  confirm("bounds are " + b.toString());
+  confirm("bounds are " + b);
 
 	/*
 	var northeast = new google.maps.Marker({
