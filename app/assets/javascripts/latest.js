@@ -20,9 +20,9 @@ function initMap() {
 
   // Create autocomplete text inputs.
   var origin_autocomplete = new google.maps.places.Autocomplete(origin_input);
-  origin_autocomplete.bindTo('bounds', map);
+  //origin_autocomplete.bindTo('bounds', map);
   var destination_autocomplete = new google.maps.places.Autocomplete(destination_input);
-  destination_autocomplete.bindTo('bounds', map);
+  //destination_autocomplete.bindTo('bounds', map);
 
   // Sets a listener on a radio button to change the travel mode.
   var travel_mode = google.maps.TravelMode.WALKING;
