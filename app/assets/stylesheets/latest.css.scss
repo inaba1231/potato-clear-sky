@@ -3,7 +3,8 @@
   height: 479px;
 }
 
-#controls > div, input{
+#controls > div,
+#controls > input {
   margin-top: 10px;
   margin-bottom: 10px;
   border: 1px solid transparent;
@@ -12,7 +13,6 @@
   height: 32px;
   outline: none;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-  display: inline-block;
 }
 
 #mode-selector {
@@ -32,6 +32,7 @@ input[type="radio"] {
   font-family: Roboto;
   font-size: 13px;
   font-weight: 300;
+  display: inline-block;
 }
 
 #origin-input,
