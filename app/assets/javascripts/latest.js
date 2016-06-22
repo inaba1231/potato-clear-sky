@@ -89,8 +89,8 @@ function initMap() {
       return;
     } else {
       directionsService.route({
-        origin: origin_place_id.placeId,
-        destination: destination_place_id.placeId,
+        origin: origin_place_id,
+        destination: destination_place_id,
         travelMode: travel_mode,
         provideRouteAlternatives: true
       }, function(response, status) {
