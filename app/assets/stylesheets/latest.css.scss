@@ -64,8 +64,12 @@ input[type="radio"] {
   padding-bottom: 5px;
 }
 
+#display_info div {
+  display: inline-block;
+}
+
 #display_toggle {
-  float: right;
+  
 }
 
 #direction_result {
