@@ -90,7 +90,7 @@ function initMap() {
     } else {
       directionsService.route({
         origin: {'placeId': origin_place_id},
-        destination: {'placeId': destination_place_id,
+        destination: {'placeId': destination_place_id},
         travelMode: travel_mode,
         provideRouteAlternatives: true
       }, function(response, status) {
