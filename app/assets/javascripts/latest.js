@@ -108,12 +108,10 @@ function initMap() {
   var heatmap_url = $("#map").data("heatmap");
 
   // Singapore's bounds.
-	var bounds = {
-    north: 1.4793,
-    south: 1.1508,
-    east: 104.1375,
-    west: 103.5521
-  };
+	var bounds = new google.maps.LatLngBounds(
+    new google.maps.LatLng(1.1506365254950617, 103.55194569091805),
+    new google.maps.LatLng(1.4794526447362755, 104.13765430908211)
+  );
 
   // Overlay heatmap with base map.
 	var Overlay = new google.maps.GroundOverlay(heatmap_url,
@@ -124,9 +122,22 @@ function initMap() {
 
 	Overlay.setMap(map);
 
-  google.maps.event.addListener(map, 'bounds_changed', function() {
-         alert(map.getBounds());
-      });
+  var last_center = map.getCenter();
+
+  google.maps.event.addListener(map,
+    'bounds_changed',
+    function() {
+      var current_bound = map.getBounds();
+      var ne = current_bound.getNorthEast();
+      var sw = current_bound.getSouthWest();
+      var nw = new google.maps.LatLng(ne.lat(), sw.lng());
+      var se = new google.maps.LatLng(sw.lat(), ne.lng());
+
+      if(bounds.contains(ne) && bounds.contains(sw)
+        && bounds.contains(nw) && bounds.contains(se)) last_center = map.getCenter();
+      else map.setCenter(last_center);
+    }
+  );
 
 	/*
 	var northeast = new google.maps.Marker({
