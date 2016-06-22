@@ -10,7 +10,6 @@
 
 #controls > div,
 #controls > input {
-  margin: 0 20px 10px 0;
   border: 1px solid transparent;
   box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -48,7 +47,8 @@ input[type="radio"] {
   font-weight: 300;
   padding: 0 11px 0 13px;
   text-overflow: ellipsis;
-  width: 260px;
+  width: 275px;
+  margin-left: 20px;
 }
 
 #origin-input:focus,
@@ -65,5 +65,6 @@ input[type="radio"] {
 }
 
 #direction_result {
+  margin-top: 10px;
   width: 853px;
 }
