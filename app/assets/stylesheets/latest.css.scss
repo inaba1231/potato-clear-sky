@@ -64,16 +64,8 @@ input[type="radio"] {
   padding-bottom: 5px;
 }
 
-#display_info div {
-  display: inline-block;
-}
-
-#scale {
-  margin-right: 30px;
-}
-
 #display_toggle {
-  vertical-align: middle;
+  float: right;
 }
 
 #direction_result {
