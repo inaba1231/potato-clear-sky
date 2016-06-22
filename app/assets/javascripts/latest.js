@@ -33,6 +33,8 @@ function initMap() {
     var radioButton = document.getElementById(id);
     radioButton.addEventListener('click', function() {
       travel_mode = mode;
+      route(origin_place_id, destination_place_id, travel_mode,
+            directionsService, directionsDisplay);
     });
   }
 
