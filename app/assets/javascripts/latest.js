@@ -124,24 +124,24 @@ function initMap() {
 	Overlay.setMap(map);
 
   // Listen for the dragend event
-  google.maps.event.addListener(mymap, 'dragend', function() {
-    if (strictBounds.contains(mymap.getCenter())) return;
+  google.maps.event.addListener(map, 'dragend', function() {
+    if (bounds.contains(map.getCenter())) return;
 
     // We're out of bounds - Move the map back within the bounds
-    var c = mymap.getCenter(),
+    var c = map.getCenter(),
     x = c.lng(),
     y = c.lat(),
-    maxX = strictBounds.getNorthEast().lng(),
-    maxY = strictBounds.getNorthEast().lat(),
-    minX = strictBounds.getSouthWest().lng(),
-    minY = strictBounds.getSouthWest().lat();
+    maxX = bounds.getNorthEast().lng(),
+    maxY = bounds.getNorthEast().lat(),
+    minX = bounds.getSouthWest().lng(),
+    minY = bounds.getSouthWest().lat();
 
     if (x < minX) x = minX;
     if (x > maxX) x = maxX;
     if (y < minY) y = minY;
     if (y > maxY) y = maxY;
 
-    mymap.setCenter(new google.maps.LatLng(y, x));
+    map.setCenter(new google.maps.LatLng(y, x));
   });
 
 	/*
