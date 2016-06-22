@@ -126,6 +126,7 @@ function initMap() {
   var last_center = new Array(11);
   for(var i = 0; i < 11; i++) last_center[i] = map.getCenter();
 
+  // Keeps track of last valid center to return to when the bounds are exceeded.
   google.maps.event.addListener(map,
     'bounds_changed',
     function() {
