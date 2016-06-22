@@ -123,6 +123,7 @@ function initMap() {
 
 	Overlay.setMap(map);
 
+/*
   // bounds of the desired area
   var allowedBounds = new google.maps.LatLngBounds(
        new google.maps.LatLng(1.1508, 103.5521),
@@ -150,6 +151,7 @@ function initMap() {
 
     map.setCenter(new google.maps.LatLng(y, x));
   });
+  */
 
 	/*
 	var northeast = new google.maps.Marker({
