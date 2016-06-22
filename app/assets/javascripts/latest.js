@@ -91,7 +91,8 @@ function initMap() {
       directionsService.route({
         origin: {'placeId': origin_place_id},
         destination: {'placeId': destination_place_id},
-        travelMode: travel_mode
+        travelMode: travel_mode,
+        provideRouteAlternatives: true
       }, function(response, status) {
         if (status === google.maps.DirectionsStatus.OK) {
           directionsDisplay.setDirections(response);
