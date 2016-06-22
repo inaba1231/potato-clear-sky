@@ -2,6 +2,15 @@
 
 <h6>updated at <%=@latestTime %></h6>
 
+<div id="map" data-heatmap="<%=@image_path %>"></div>
+
+<div id="below_map">
+	<div>
+		<p>Rain Intensity:</p>
+		<img src="/assets/rain-intensity.jpg" />
+	</div>
+</div>
+
 <div id="mode-selector" class="controls">
   <input type="radio" name="type" id="changemode-walking" checked="checked">
   <label for="changemode-walking">Walking</label>
@@ -20,15 +29,6 @@
     placeholder="Enter a destination location">
 
 <div id="direction_result" class="display"></div>
-
-<div id="map" data-heatmap="<%=@image_path %>"></div>
-
-<div id="below_map">
-	<div>
-		<p>Rain Intensity:</p>
-		<img src="/assets/rain-intensity.jpg" />
-	</div>
-</div>
 
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCzs7lxzMPK6S-jX5YB2n7Ff3SdMQ2PJIE&libraries=places&callback=initMap">
 </script>
