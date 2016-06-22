@@ -5,7 +5,9 @@ function initMap() {
     	zoom: 11,
 		  minZoom: 11,
     	center: {lat: 1.31505, lng: 103.8448},
-      mapTypeControl: false
+      mapTypeControl: false,
+      streetViewControl: false,
+      panControl: true
   });
 
   // Create direction service and direction display.
@@ -122,36 +124,6 @@ function initMap() {
 		});
 
 	Overlay.setMap(map);
-
-/*
-  // bounds of the desired area
-  var allowedBounds = new google.maps.LatLngBounds(
-       new google.maps.LatLng(1.1508, 103.5521),
-       new google.maps.LatLng(1.4793, 104.1375)
-  );
-
-  // Listen for the dragend event
-  google.maps.event.addListener(map, 'dragend', function() {
-    if (allowedBounds.contains(map.getCenter())) return;
-
-    // Out of bounds - Move the map back within the bounds
-
-    var c = map.getCenter(),
-        x = c.lng(),
-        y = c.lat(),
-        maxX = allowedBounds.getNorthEast().lng(),
-        maxY = allowedBounds.getNorthEast().lat(),
-        minX = allowedBounds.getSouthWest().lng(),
-        minY = allowedBounds.getSouthWest().lat();
-
-    if (x < minX) x = minX;
-    if (x > maxX) x = maxX;
-    if (y < minY) y = minY;
-    if (y > maxY) y = maxY;
-
-    map.setCenter(new google.maps.LatLng(y, x));
-  });
-  */
 
 	/*
 	var northeast = new google.maps.Marker({
