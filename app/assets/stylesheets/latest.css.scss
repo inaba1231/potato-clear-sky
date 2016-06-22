@@ -57,6 +57,7 @@ input[type="radio"] {
 }
 
 #display_info {
+  position: relative;
   margin-top: 10px;
   width: 853px;
   background-color: #f5f5f5;
@@ -70,7 +71,7 @@ input[type="radio"] {
 }
 #display_toggle {
   vertical-align: middle;
-  margin-left: 300px;
+  float: right;
 }
 
 #direction_result {
