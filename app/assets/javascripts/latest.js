@@ -123,6 +123,19 @@ function initMap() {
 
 	Overlay.setMap(map);
 
+  var lastValidCenter = map.getCenter();
+
+  google.maps.event.addListener(map, 'center_changed', function() {
+      if (bounds.contains(map.getCenter())) {
+          // still within valid bounds, so save the last valid position
+          lastValidCenter = map.getCenter();
+          return; 
+      }
+
+      // not valid anymore => return to last valid position
+      map.panTo(lastValidCenter);
+  });
+
 	/*
 	var northeast = new google.maps.Marker({
 		map: map,
