@@ -18,11 +18,11 @@ function initMap() {
   var destination_input = document.getElementById('destination-input');
   var modes = document.getElementById('mode-selector');
 
-  // Create autocomplete text inputs.
+  // Create autocomplete text inputs and bind reccomendations to current viewport.
   var origin_autocomplete = new google.maps.places.Autocomplete(origin_input);
-  //origin_autocomplete.bindTo('bounds', map);
+  origin_autocomplete.bindTo('bounds', map);
   var destination_autocomplete = new google.maps.places.Autocomplete(destination_input);
-  //destination_autocomplete.bindTo('bounds', map);
+  destination_autocomplete.bindTo('bounds', map);
 
   // Sets a listener on a radio button to change the travel mode.
   var travel_mode = google.maps.TravelMode.WALKING;
