@@ -122,7 +122,13 @@ function initMap() {
 
 	Overlay.setMap(map);
 
-  var last_center = map.getCenter();
+  // Functions to create an array of desired length and defualt values.
+  Array.prototype.repeat= function(default, length){
+   while(length) this[--length]= default;
+   return this;
+  }
+
+  var last_center = [].repeat(map.getCenter(), 11);
 
   google.maps.event.addListener(map,
     'bounds_changed',
@@ -134,8 +140,8 @@ function initMap() {
       var se = new google.maps.LatLng(sw.lat(), ne.lng());
 
       if(bounds.contains(ne) && bounds.contains(sw)
-        && bounds.contains(nw) && bounds.contains(se)) last_center = map.getCenter();
-      else map.setCenter(last_center);
+        && bounds.contains(nw) && bounds.contains(se)) last_center[map.getZoom() - 1] = map.getCenter();
+      else map.setCenter(last_center[map.getZoom() - 1]);
     }
   );
 
