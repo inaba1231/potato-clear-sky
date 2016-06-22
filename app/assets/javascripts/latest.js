@@ -5,11 +5,8 @@ function initMap() {
     	zoom: 11,
 		  minZoom: 11,
     	center: {lat: 1.31505, lng: 103.8448},
-      draggable: false,
-      scrollwheel: false,
       mapTypeControl: false,
       streetViewControl: false,
-      panControl: true
   });
 
   // Create direction service and direction display.
