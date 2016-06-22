@@ -52,7 +52,7 @@ function initMap() {
       return;
     } else {
       expandViewportToFitPlace(map, place);
-      origin_place_id = place.placeId;
+      origin_place_id = place.place_id;
       route(origin_place_id, destination_place_id, travel_mode,
             directionsService, directionsDisplay);
     }
@@ -66,7 +66,7 @@ function initMap() {
       return;
     } else {
       expandViewportToFitPlace(map, place);
-      destination_place_id = place.placeId;
+      destination_place_id = place.place_id;
       route(origin_place_id, destination_place_id, travel_mode,
             directionsService, directionsDisplay);
     }
