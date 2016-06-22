@@ -124,6 +124,11 @@ function initMap() {
 
 	Overlay.setMap(map);
 
+  var bounds = map.getBounds();
+  var ne = bounds.getNorthEast(); // LatLng of the north-east corner
+  var sw = bounds.getSouthWest(); // LatLng of the south-west corder
+  alert(ne.toString());
+
 	/*
 	var northeast = new google.maps.Marker({
 		map: map,
