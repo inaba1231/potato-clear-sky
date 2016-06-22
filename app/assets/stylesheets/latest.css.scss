@@ -72,7 +72,12 @@ input[type="radio"] {
 #display_toggle {
   position: absolute;
   right: 10px;
-  margin-top: 50px;
+  margin-top: 25px;
+}
+
+input[type="checkbox"] {
+  margin-top: -2px;
+  vertical-align: middle;
 }
 
 #direction_result {
