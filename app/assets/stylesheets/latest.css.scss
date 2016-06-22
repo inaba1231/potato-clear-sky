@@ -1,5 +1,5 @@
-#display {
-  float: left;
+.display {
+  display: inline-block;
 }
 
 #map {
@@ -64,5 +64,4 @@ input[type="radio"] {
 
 #direction_result {
   width: 450px;
-  float: right;
 }
