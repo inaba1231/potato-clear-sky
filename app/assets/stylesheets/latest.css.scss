@@ -1,3 +1,7 @@
+#display {
+  display: inline-block;
+}
+
 #map {
   width: 853px;
   height: 479px;
@@ -59,6 +63,6 @@ input[type="radio"] {
 }
 
 #direction_result {
-  width: 500px;
+  width: 450px;
   float: right;
 }
