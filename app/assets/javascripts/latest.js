@@ -52,7 +52,7 @@ function initMap() {
       return;
     } else {
       expandViewportToFitPlace(map, place);
-      origin_place_id = place.place_id;
+      origin_place_id = place.placeId;
       route(origin_place_id, destination_place_id, travel_mode,
             directionsService, directionsDisplay);
     }
@@ -66,7 +66,7 @@ function initMap() {
       return;
     } else {
       expandViewportToFitPlace(map, place);
-      destination_place_id = place.place_id;
+      destination_place_id = place.placeId;
       route(origin_place_id, destination_place_id, travel_mode,
             directionsService, directionsDisplay);
     }
@@ -89,8 +89,8 @@ function initMap() {
       return;
     } else {
       directionsService.route({
-        origin: origin_place_id,
-        destination: destination_place_id,
+        origin: {'placeId': origin_place_id.placeId},
+        destination: {'placeId': destination_place_id.placeId},
         travelMode: travel_mode,
         provideRouteAlternatives: true
       }, function(response, status) {
