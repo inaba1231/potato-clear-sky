@@ -58,11 +58,13 @@ input[type="radio"] {
 
 #display_info {
   position: relative;
+  display: table-cell;
   margin-top: 10px;
   width: 853px;
   background-color: #f5f5f5;
   border-color: #f5f5f5;
   padding-bottom: 5px;
+  vertical-align: middle;
 }
 
 #display_info div {
@@ -72,7 +74,6 @@ input[type="radio"] {
 #display_toggle {
   position: absolute;
   right: 10px;
-  vertical-align: middle;
 }
 
 #direction_result {
