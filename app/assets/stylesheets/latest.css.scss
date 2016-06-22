@@ -3,9 +3,14 @@
   height: 479px;
 }
 
+#controls {
+  margin-top: 10px;
+  width: 853px;
+}
+
 #controls > div,
 #controls > input {
-  margin: 0 10px 20px 10px;
+  margin: 10px 20px 10px 0;
   border: 1px solid transparent;
   box-sizing: border-box;
   -moz-box-sizing: border-box;
