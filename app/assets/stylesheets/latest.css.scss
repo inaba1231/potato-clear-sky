@@ -64,13 +64,13 @@ input[type="radio"] {
   padding-bottom: 5px;
 }
 
-#display_info div {
-  display: inline-block;
+#scale {
+  width: 373;
 }
-
 #display_toggle {
+  position: absolute;
   right: 5px;
-  margin-top: -10px;
+
 }
 
 #direction_result {
