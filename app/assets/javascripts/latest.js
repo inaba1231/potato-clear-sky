@@ -10,10 +10,10 @@ function initMap() {
 
   // Create direction service and direction display.
   var directionsService = new google.maps.DirectionsService;
-  var directionsDisplay = new google.maps.DirectionsRenderer({ 
-    panel: document.getElementById('direction_result')
-  });
+  var directionsDisplay = new google.maps.DirectionsRenderer;
   directionsDisplay.setMap(map);
+  directionsDisplay.setPanel(document.getElementById('direction_result'));
+
 
   // HTML input elements.
   var origin_input = document.getElementById('origin-input');
