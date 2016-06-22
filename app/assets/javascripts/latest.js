@@ -122,13 +122,9 @@ function initMap() {
 
 	Overlay.setMap(map);
 
-  // Functions to create an array of desired length and defualt values.
-  Array.prototype.repeat= function(default, length){
-   while(length) this[--length]= default;
-   return this;
-  }
-
-  var last_center = [].repeat(map.getCenter(), 11);
+  // Create an array to keep track of last valid center at each zoom level.
+  var last_center = new Array(11);
+  for(var i = 0; i < 11; i++) last_center[i] = map.getCenter();
 
   google.maps.event.addListener(map,
     'bounds_changed',
