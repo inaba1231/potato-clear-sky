@@ -123,17 +123,25 @@ function initMap() {
 
 	Overlay.setMap(map);
 
-  var lastValidCenter = map.getCenter();
+  // Listen for the dragend event
+  google.maps.event.addListener(mymap, 'dragend', function() {
+    if (strictBounds.contains(mymap.getCenter())) return;
 
-  google.maps.event.addListener(map, 'center_changed', function() {
-      if (bounds.contains(map.getCenter())) {
-          // still within valid bounds, so save the last valid position
-          lastValidCenter = map.getCenter();
-          return; 
-      }
+    // We're out of bounds - Move the map back within the bounds
+    var c = mymap.getCenter(),
+    x = c.lng(),
+    y = c.lat(),
+    maxX = strictBounds.getNorthEast().lng(),
+    maxY = strictBounds.getNorthEast().lat(),
+    minX = strictBounds.getSouthWest().lng(),
+    minY = strictBounds.getSouthWest().lat();
 
-      // not valid anymore => return to last valid position
-      map.panTo(lastValidCenter);
+    if (x < minX) x = minX;
+    if (x > maxX) x = maxX;
+    if (y < minY) y = minY;
+    if (y > maxY) y = maxY;
+
+    mymap.setCenter(new google.maps.LatLng(y, x));
   });
 
 	/*
