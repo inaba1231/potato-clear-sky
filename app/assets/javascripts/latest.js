@@ -21,9 +21,7 @@ function initMap() {
   // Overlay heatmap with base map.
 	var overlay = new google.maps.GroundOverlay(heatmap_url,
 		bounds,
-		{
-			opacity: 1
-		});
+	);
 
 	overlay.setMap(map);
 
@@ -35,23 +33,24 @@ function initMap() {
 
 
   var route_toggle = document.getElementById('route_toggle');
-	var route_toggle_state = true;
+	var route_is_visible = true;
 	var heatmap_toggle = document.getElementById('heatmap_toggle');
-	var heatmap_toggle_state = 1;
-/*
+	var heatmap_opacity = 1;
+
 	route_toggle.addEventListener('click', function() {
-		route_toggle_state = !route_toggle_state;
+		if (route_is_visible) route_is_visible = false;
+		else route_is_visible = true;
+		// route_toggle_state = !route_toggle_state;
 		directionsDisplay.setOptions(
 			polylineOptions: {visible: route_toggle_state}
 		)
 	});
-	*/
 
 	heatmap_toggle.addEventListener('click', function() {
-		if (heatmap_toggle_state === 1) heatmap_toggle_state = 0.5;
-		else heatmap_toggle_state = 1;
+		if (heatmap_opacity === 1) heatmap_opacity = 0.2;
+		else heatmap_opacity = 1;
 
-		overlay.setOpacity(heatmap_toggle_state);
+		overlay.setOpacity(heatmap_opacity);
 	});
 
   // HTML input elements.
