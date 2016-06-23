@@ -19,13 +19,13 @@ function initMap() {
   );
 
   // Overlay heatmap with base map.
-	overlay = new google.maps.GroundOverlay(heatmap_url,
+	var overlay = new google.maps.GroundOverlay(heatmap_url,
 		bounds,
 		opacity: heatmap_opacity
 	);
 
 	overlay.setMap(map);
-	
+
 	// Heatmap display toggles and click listener.
   var heatmap_toggle = document.getElementById('heatmap_toggle');
 	var heatmap_opacity = 1;
