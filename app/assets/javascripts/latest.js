@@ -19,6 +19,7 @@ function initMap() {
   );
 
   // Heatmap display toggles and click listener.
+  var overlay = null;
   var heatmap_toggle = document.getElementById('heatmap_toggle');
 	var heatmap_opacity = 1;
 
@@ -26,11 +27,11 @@ function initMap() {
 		if (heatmap_opacity === 1) heatmap_opacity = 0.2;
 		else heatmap_opacity = 1;
 
-		overlay.setOpacity(heatmap_opacity);
+		if(overlay) overlay.setOpacity(heatmap_opacity);
 	});
 
   // Overlay heatmap with base map.
-	var overlay = new google.maps.GroundOverlay(heatmap_url,
+	overlay = new google.maps.GroundOverlay(heatmap_url,
 		bounds,
 		opacity: heatmap_opacity
 	);
