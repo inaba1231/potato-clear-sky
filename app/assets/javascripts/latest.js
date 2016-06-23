@@ -116,8 +116,7 @@ function initMap() {
 	var route_is_visible = true;
 
 	route_toggle.addEventListener('click', function() {
-		if (route_is_visible) route_is_visible = false;
-		else route_is_visible = true;
+		route_is_visible = !route_is_visible;
 
 		directionsDisplay.setOptions({
 			// routeIndex: directionsDisplay.getRouteIndex(),
