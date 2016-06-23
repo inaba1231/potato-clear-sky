@@ -125,20 +125,12 @@ function initMap() {
 	var heatmap_opacity = 1;
 
 	route_toggle.addEventListener('click', function() {
-		
-
 		if (route_is_visible) route_is_visible = false;
 		else route_is_visible = true;
-		
-		if (directionsDisplay.getDirections()) {
-			directionsDisplay.setOptions(
-				polylineOptions: {visible: route_is_visible}
-			)
-		} else {
-			return;
-		}
-
 		// route_toggle_state = !route_toggle_state;
+		directionsDisplay.setOptions({
+			polylineOptions: {visible: route_is_visible}
+		})
 	});
 
 	heatmap_toggle.addEventListener('click', function() {
