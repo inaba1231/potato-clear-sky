@@ -111,6 +111,17 @@ function initMap() {
     }
   }
 
+  var route_toggle = document.getElementById('route_toggle');
+	var route_is_visible = true;
+
+
+	route_toggle.addEventListener('click', function() {
+		route_is_visible = !route_is_visible;
+		directionsDisplay.setOptions({
+			suppressPolylines: !route_is_visible
+		})
+	});
+
   // Generates route from origin to destination in the selected travel mode.
   function route(origin_place_id, destination_place_id, travel_mode,
                  directionsService, directionsDisplay) {
@@ -125,24 +136,15 @@ function initMap() {
       }, function(response, status) {
         if (status === google.maps.DirectionsStatus.OK) {
           directionsDisplay.setDirections(response);
+          directionsDisplay.setOptions({
+          	polylineOptions: {visible: route_is_visible}
+          });
         } else {
           window.alert('Directions request failed due to ' + status);
         }
       });
     }
   }
-
-  var route_toggle = document.getElementById('route_toggle');
-	var route_is_visible = true;
-
-
-	route_toggle.addEventListener('click', function() {
-		route_is_visible = !route_is_visible;
-		directionsDisplay.setOptions({
-			suppressPolylines: !route_is_visible
-		})
-	});
-
 
   // Create an array to keep track of last valid center at each zoom level.
   var last_center = new Array(11);
