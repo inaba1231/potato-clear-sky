@@ -111,16 +111,16 @@ function initMap() {
     }
   }
 
-  alert(directionsDisplay.getDirections() === true);
-
   // Route display toggle and click listener.
   var route_toggle = document.getElementById('route_toggle');
-	var route_is_visible = true;
+	var route_opacity = 1;
 
 	route_toggle.addEventListener('click', function() {
-		route_is_visible = !route_is_visible;
+		if(route_opacity === 1) route_opacity = 0;
+		else route_opacity = 1;
+		
 		directionsDisplay.setOptions({
-			polylineOptions: {visible: route_is_visible}
+			polylineOptions: {strokeOpacity: route_opacity}
 		})
 	});
 
@@ -139,13 +139,12 @@ function initMap() {
         if (status === google.maps.DirectionsStatus.OK) {
           directionsDisplay.setDirections(response);
           directionsDisplay.setOptions({
-          	polylineOptions: {visible: route_is_visible}
+          	polylineOptions: {strokeOpacity: route_opacity}
           });
         } else {
           window.alert('Directions request failed due to ' + status);
         }
       });
-      alert(directionsDisplay.getDirections() === true);
     }
   }
 
