@@ -137,11 +137,9 @@ function initMap() {
 
 
 	route_toggle.addEventListener('click', function() {
-		if (route_is_visible) route_is_visible = false;
-		else route_is_visible = true;
-		// route_toggle_state = !route_toggle_state;
+		route_is_visible = !route_is_visible;
 		directionsDisplay.setOptions({
-			suppressPolylines: route_is_visible
+			suppressPolylines: !route_is_visible
 		})
 	});
 
