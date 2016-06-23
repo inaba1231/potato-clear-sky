@@ -123,7 +123,6 @@ function initMap() {
 			routeIndex: directionsDisplay.getRouteIndex(),
 			suppressPolylines: !route_is_visible
 		})
-		directionsDisplay.setDirections(directionsDisplay.getDirections());
 	});
 
   // Generates route from origin to destination in the selected travel mode.
