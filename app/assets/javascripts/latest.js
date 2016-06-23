@@ -120,7 +120,7 @@ function initMap() {
 		else route_is_visible = true;
 
 		directionsDisplay.setOptions({
-			routeIndex: directionsDisplay.getRouteIndex();
+			routeIndex: directionsDisplay.getRouteIndex(),
 			suppressPolylines: !route_is_visible
 		})
 		directionsDisplay.setDirections(directionsDisplay.getDirections());
