@@ -22,16 +22,20 @@ function initMap() {
   var overlay = null;
   var heatmap_toggle = document.getElementById('heatmap_toggle');
 
+  function opacity(is_checked) {
+  	if (is_checked) return 1;
+  	else return 0.2;
+  }
+
 	heatmap_toggle.addEventListener('click', function() {
 		if(!overlay) return;
-		else if(heatmap_toggle.checked) overlay.setOpacity(1);
-		else overlay.setOpacity(0.2)
+		else overlay.setOpacity(opacity(heatmap_toggle.checked));;
 	});
 
   // Overlay heatmap with base map.
 	overlay = new google.maps.GroundOverlay(heatmap_url,
 		bounds,
-		{opacity: heatmap_opacity}
+		{opacity: opacity(heatmap_toggle.checked)}
 	);
 
 	overlay.setMap(map);
