@@ -120,7 +120,7 @@ function initMap() {
 		else route_is_visible = true;
 
 		directionsDisplay.setOptions({
-			routeIndex: directionsDisplay.getRouteIndex(),
+			// routeIndex: directionsDisplay.getRouteIndex(),
 			suppressPolylines: !route_is_visible
 		})
 	});
@@ -139,11 +139,6 @@ function initMap() {
       }, function(response, status) {
         if (status === google.maps.DirectionsStatus.OK) {
           directionsDisplay.setDirections(response);
-          /*
-          directionsDisplay.setOptions({
-          	polylineOptions: {visible: route_is_visible}
-          });
-          */
         } else {
           window.alert('Directions request failed due to ' + status);
         }
