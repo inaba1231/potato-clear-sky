@@ -2,12 +2,30 @@ function initMap() {
 
   // Create base map.
 	var map = new google.maps.Map(document.getElementById('map'), {
-    	zoom: 11,
-		  minZoom: 11,
-    	center: {lat: 1.31505, lng: 103.8448},
-      mapTypeControl: false,
-      streetViewControl: false,
+		zoom: 11,
+		minZoom: 11,
+		center: {lat: 1.31505, lng: 103.8448},
+		mapTypeControl: false,
+		streetViewControl: false,
   });
+
+  // URL for latest heatmap.
+  var heatmap_url = $("#map").data("heatmap");
+
+  // Singapore's bounds.
+	var bounds = new google.maps.LatLngBounds(
+    new google.maps.LatLng(1.1506365254950617, 103.55194569091805),
+    new google.maps.LatLng(1.4794526447362755, 104.13765430908211)
+  );
+
+  // Overlay heatmap with base map.
+	var overlay = new google.maps.GroundOverlay(heatmap_url,
+		bounds,
+		{
+			opacity: 1
+		});
+
+	overlay.setMap(map);
 
   // Create direction service and direction display.
   var directionsService = new google.maps.DirectionsService;
@@ -15,6 +33,24 @@ function initMap() {
   directionsDisplay.setMap(map);
   directionsDisplay.setPanel(document.getElementById('direction_result'));
 
+  var route_toggle = document.getElementById('route_toggle');
+	var route_toggle_state = true;
+	var heatmap_toggle = document.getElementById('heatmap_toggle');
+	var heatmap_toggle_state = 1;
+
+	route_toggle.addEventListener('click', function() {
+		route_toggle_state = !route_toggle_state;
+		directionsDisplay.setOptions(
+			polylineOptions: {visible: route_toggle_state}
+		)
+	});
+
+	heatmap_toggle.addEventListener('click', function() {
+		if (heatmap_toggle_state === 1) heatmap_toggle_state = 0.5;
+		else heatmap_toggle_state = 1;
+
+		overlay.setOpacity(heatmap_toggle_state);
+	});
 
   // HTML input elements.
   var origin_input = document.getElementById('origin-input');
@@ -103,24 +139,6 @@ function initMap() {
       });
     }
   }
-  
-  // URL for latest heatmap.
-  var heatmap_url = $("#map").data("heatmap");
-
-  // Singapore's bounds.
-	var bounds = new google.maps.LatLngBounds(
-    new google.maps.LatLng(1.1506365254950617, 103.55194569091805),
-    new google.maps.LatLng(1.4794526447362755, 104.13765430908211)
-  );
-
-  // Overlay heatmap with base map.
-	var Overlay = new google.maps.GroundOverlay(heatmap_url,
-		bounds,
-		{
-			opacity: 1
-		});
-
-	Overlay.setMap(map);
 
   // Create an array to keep track of last valid center at each zoom level.
   var last_center = new Array(11);
