@@ -119,9 +119,10 @@ function initMap() {
 		route_is_visible = !route_is_visible;
 
 		directionsDisplay.setOptions({
-			// routeIndex: directionsDisplay.getRouteIndex(),
-			polylineOptions: {visible: route_is_visible}
+			suppressPolylines: !route_is_visible
 		})
+
+		directionsDisplay.setMap(map);
 	});
 
   // Generates route from origin to destination in the selected travel mode.
