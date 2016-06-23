@@ -113,14 +113,14 @@ function initMap() {
 
   // Route display toggle and click listener.
   var route_toggle = document.getElementById('route_toggle');
-	var route_opacity = 1;
+	var route_is_visible = true;
 
 	route_toggle.addEventListener('click', function() {
-		if(route_opacity === 1) route_opacity = 0;
-		else route_opacity = 1;
-		
+		if (route_is_visible) route_is_visible = false;
+		else route_is_visible = true;
+
 		directionsDisplay.setOptions({
-			polylineOptions: {strokeOpacity: route_opacity}
+			polylineOptions: {visible: route_is_visible}
 		})
 	});
 
@@ -138,9 +138,11 @@ function initMap() {
       }, function(response, status) {
         if (status === google.maps.DirectionsStatus.OK) {
           directionsDisplay.setDirections(response);
+          /*
           directionsDisplay.setOptions({
-          	polylineOptions: {strokeOpacity: route_opacity}
+          	polylineOptions: {visible: route_is_visible}
           });
+          */
         } else {
           window.alert('Directions request failed due to ' + status);
         }
