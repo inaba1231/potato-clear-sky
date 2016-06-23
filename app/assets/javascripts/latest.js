@@ -18,9 +18,21 @@ function initMap() {
     new google.maps.LatLng(1.4794526447362755, 104.13765430908211)
   );
 
+  // Heatmap display toggles and click listener.
+  var heatmap_toggle = document.getElementById('heatmap_toggle');
+	var heatmap_opacity = 1;
+
+	heatmap_toggle.addEventListener('click', function() {
+		if (heatmap_opacity === 1) heatmap_opacity = 0.2;
+		else heatmap_opacity = 1;
+
+		overlay.setOpacity(heatmap_opacity);
+	});
+
   // Overlay heatmap with base map.
 	var overlay = new google.maps.GroundOverlay(heatmap_url,
 		bounds,
+		opacity: heatmap_opacity
 	);
 
 	overlay.setMap(map);
@@ -121,9 +133,8 @@ function initMap() {
 
   var route_toggle = document.getElementById('route_toggle');
 	var route_is_visible = true;
-	var heatmap_toggle = document.getElementById('heatmap_toggle');
-	var heatmap_opacity = 1;
 
+/*
 	route_toggle.addEventListener('click', function() {
 		if (route_is_visible) route_is_visible = false;
 		else route_is_visible = true;
@@ -132,13 +143,7 @@ function initMap() {
 			polylineOptions: {visible: route_is_visible}
 		})
 	});
-
-	heatmap_toggle.addEventListener('click', function() {
-		if (heatmap_opacity === 1) heatmap_opacity = 0.2;
-		else heatmap_opacity = 1;
-
-		overlay.setOpacity(heatmap_opacity);
-	});
+	*/
 
   // Create an array to keep track of last valid center at each zoom level.
   var last_center = new Array(11);
