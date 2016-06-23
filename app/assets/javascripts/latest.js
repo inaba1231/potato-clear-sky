@@ -111,14 +111,14 @@ function initMap() {
     }
   }
 
+  // Route display toggle and click listener.
   var route_toggle = document.getElementById('route_toggle');
 	var route_is_visible = true;
-
 
 	route_toggle.addEventListener('click', function() {
 		route_is_visible = !route_is_visible;
 		directionsDisplay.setOptions({
-			suppressPolylines: !route_is_visible
+			polylineOptions: {visible: route_is_visible}
 		})
 	});
 
