@@ -33,18 +33,19 @@ function initMap() {
   directionsDisplay.setMap(map);
   directionsDisplay.setPanel(document.getElementById('direction_result'));
 
-/*
+
   var route_toggle = document.getElementById('route_toggle');
 	var route_toggle_state = true;
 	var heatmap_toggle = document.getElementById('heatmap_toggle');
 	var heatmap_toggle_state = 1;
-
+/*
 	route_toggle.addEventListener('click', function() {
 		route_toggle_state = !route_toggle_state;
 		directionsDisplay.setOptions(
 			polylineOptions: {visible: route_toggle_state}
 		)
 	});
+	*/
 
 	heatmap_toggle.addEventListener('click', function() {
 		if (heatmap_toggle_state === 1) heatmap_toggle_state = 0.5;
@@ -52,7 +53,6 @@ function initMap() {
 
 		overlay.setOpacity(heatmap_toggle_state);
 	});
-	*/
 
   // HTML input elements.
   var origin_input = document.getElementById('origin-input');
