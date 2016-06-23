@@ -21,13 +21,11 @@ function initMap() {
   // Heatmap display toggles and click listener.
   var overlay = null;
   var heatmap_toggle = document.getElementById('heatmap_toggle');
-	var heatmap_opacity = 1;
 
 	heatmap_toggle.addEventListener('click', function() {
-		if (heatmap_opacity === 1) heatmap_opacity = 0.2;
-		else heatmap_opacity = 1;
-
-		if(overlay) overlay.setOpacity(heatmap_opacity);
+		if(!overlay) return;
+		else if(heatmap_toggle.checked) overlay.setOpacity(1);
+		else overlay.setOpacity(0.2)
 	});
 
   // Overlay heatmap with base map.
@@ -122,7 +120,6 @@ function initMap() {
 		directionsDisplay.setOptions({
 			suppressPolylines: !route_is_visible
 		})
-
 		directionsDisplay.setMap(map);
 	});
 
