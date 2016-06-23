@@ -33,6 +33,7 @@ function initMap() {
   directionsDisplay.setMap(map);
   directionsDisplay.setPanel(document.getElementById('direction_result'));
 
+/*
   var route_toggle = document.getElementById('route_toggle');
 	var route_toggle_state = true;
 	var heatmap_toggle = document.getElementById('heatmap_toggle');
@@ -51,6 +52,7 @@ function initMap() {
 
 		overlay.setOpacity(heatmap_toggle_state);
 	});
+	*/
 
   // HTML input elements.
   var origin_input = document.getElementById('origin-input');
