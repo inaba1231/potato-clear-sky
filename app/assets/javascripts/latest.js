@@ -21,7 +21,7 @@ function initMap() {
   // Overlay heatmap with base map.
 	var overlay = new google.maps.GroundOverlay(heatmap_url,
 		bounds,
-		opacity: heatmap_opacity
+		{opacity: heatmap_opacity}
 	);
 
 	overlay.setMap(map);
