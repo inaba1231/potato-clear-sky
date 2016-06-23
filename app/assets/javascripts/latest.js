@@ -18,15 +18,8 @@ function initMap() {
     new google.maps.LatLng(1.4794526447362755, 104.13765430908211)
   );
 
-  // Overlay heatmap with base map.
-	var overlay = new google.maps.GroundOverlay(heatmap_url,
-		bounds,
-		{opacity: heatmap_opacity}
-	);
-
-	overlay.setMap(map);
-
-	// Heatmap display toggles and click listener.
+  // Heatmap display toggles and click listener.
+  var overlay = null;
   var heatmap_toggle = document.getElementById('heatmap_toggle');
 	var heatmap_opacity = 1;
 
@@ -36,6 +29,14 @@ function initMap() {
 
 		if(overlay) overlay.setOpacity(heatmap_opacity);
 	});
+
+  // Overlay heatmap with base map.
+	overlay = new google.maps.GroundOverlay(heatmap_url,
+		bounds,
+		{opacity: heatmap_opacity}
+	);
+
+	overlay.setMap(map);
 
   // Create direction service and direction display.
   var directionsService = new google.maps.DirectionsService;
