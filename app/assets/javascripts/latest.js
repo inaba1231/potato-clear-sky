@@ -111,7 +111,7 @@ function initMap() {
     }
   }
 
-  alert(directionsDisplay.getDirections() === true)
+  alert(directionsDisplay.getDirections() === true);
 
   // Route display toggle and click listener.
   var route_toggle = document.getElementById('route_toggle');
@@ -145,6 +145,7 @@ function initMap() {
           window.alert('Directions request failed due to ' + status);
         }
       });
+      alert(directionsDisplay.getDirections() === true);
     }
   }
 
