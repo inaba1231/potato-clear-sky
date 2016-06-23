@@ -111,6 +111,8 @@ function initMap() {
     }
   }
 
+  alert(directionsDisplay.getDirections() === true)
+
   // Route display toggle and click listener.
   var route_toggle = document.getElementById('route_toggle');
 	var route_is_visible = true;
