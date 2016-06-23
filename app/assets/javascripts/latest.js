@@ -31,28 +31,6 @@ function initMap() {
   directionsDisplay.setMap(map);
   directionsDisplay.setPanel(document.getElementById('direction_result'));
 
-
-  var route_toggle = document.getElementById('route_toggle');
-	var route_is_visible = true;
-	var heatmap_toggle = document.getElementById('heatmap_toggle');
-	var heatmap_opacity = 1;
-
-	route_toggle.addEventListener('click', function() {
-		if (route_is_visible) route_is_visible = false;
-		else route_is_visible = true;
-		// route_toggle_state = !route_toggle_state;
-		directionsDisplay.setOptions(
-			polylineOptions: {visible: route_toggle_state}
-		)
-	});
-
-	heatmap_toggle.addEventListener('click', function() {
-		if (heatmap_opacity === 1) heatmap_opacity = 0.2;
-		else heatmap_opacity = 1;
-
-		overlay.setOpacity(heatmap_opacity);
-	});
-
   // HTML input elements.
   var origin_input = document.getElementById('origin-input');
   var destination_input = document.getElementById('destination-input');
@@ -140,6 +118,27 @@ function initMap() {
       });
     }
   }
+
+  var route_toggle = document.getElementById('route_toggle');
+	var route_is_visible = true;
+	var heatmap_toggle = document.getElementById('heatmap_toggle');
+	var heatmap_opacity = 1;
+
+	route_toggle.addEventListener('click', function() {
+		if (route_is_visible) route_is_visible = false;
+		else route_is_visible = true;
+		// route_toggle_state = !route_toggle_state;
+		directionsDisplay.setOptions(
+			polylineOptions: {visible: route_is_visible}
+		)
+	});
+
+	heatmap_toggle.addEventListener('click', function() {
+		if (heatmap_opacity === 1) heatmap_opacity = 0.2;
+		else heatmap_opacity = 1;
+
+		overlay.setOpacity(heatmap_opacity);
+	});
 
   // Create an array to keep track of last valid center at each zoom level.
   var last_center = new Array(11);
