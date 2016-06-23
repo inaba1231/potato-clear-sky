@@ -116,7 +116,6 @@ function initMap() {
   // Route display toggle and click listener.
   var route_toggle = document.getElementById('route_toggle');
 	var route_is_visible = route_toggle.checked;
-	alert(route_is_visible);
 
 	route_toggle.addEventListener('click', function() {
 		route_is_visible = !route_is_visible;
