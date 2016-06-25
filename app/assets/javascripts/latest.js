@@ -187,11 +187,10 @@ function initMap() {
       infoWindow.setPosition(pos);
       infoWindow.setContent('Your current location.');
     }, function() {
-    	handleLocationError(true, infoWindow, map.getCenter());
+    	infoWindow.close;
     });
   } else {
-    // Browser doesn't support Geolocation
-    handleLocationError(false, infoWindow, map.getCenter());
+    infoWindow.close;
   }
 
 
