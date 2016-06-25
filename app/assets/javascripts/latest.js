@@ -178,8 +178,7 @@ function initMap() {
       };
 
       infoWindow.setPosition(pos);
-      infoWindow.setContent('Location found.');
-      map.setCenter(pos);
+      infoWindow.setContent('Your current location.');
     }, function() {
     	handleLocationError(true, infoWindow, map.getCenter());
     });
@@ -191,8 +190,8 @@ function initMap() {
 	function handleLocationError(browserHasGeolocation, window, pos) {
 	  window.setPosition(pos);
 	  window.setContent(browserHasGeolocation ?
-	                        'Error: The Geolocation service failed.' :
-	                        'Error: Your browser doesn\'t support geolocation.');
+	                    'Error: The Geolocation service failed.' :
+	                    'Error: Your browser doesn\'t support geolocation.');
 	}
 
 
