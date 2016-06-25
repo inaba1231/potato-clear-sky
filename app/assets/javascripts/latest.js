@@ -166,7 +166,7 @@ function initMap() {
       	else map.setCenter(last_center[map.getZoom() - 1]);
     }
   );
-/*
+
   var infoWindow = new google.maps.InfoWindow({map: map});
 
   // Try HTML5 geolocation.
@@ -188,12 +188,12 @@ function initMap() {
     handleLocationError(false, infoWindow, map.getCenter());
   }
 
-	function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-	  infoWindow.setPosition(pos);
-	  infoWindow.setContent(browserHasGeolocation ?
+	function handleLocationError(browserHasGeolocation, window, pos) {
+	  window.setPosition(pos);
+	  window.setContent(browserHasGeolocation ?
 	                        'Error: The Geolocation service failed.' :
 	                        'Error: Your browser doesn\'t support geolocation.');
-*/
+
 
 	/*
 	var northeast = new google.maps.Marker({
