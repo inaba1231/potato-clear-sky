@@ -193,6 +193,7 @@ function initMap() {
 	  window.setContent(browserHasGeolocation ?
 	                        'Error: The Geolocation service failed.' :
 	                        'Error: Your browser doesn\'t support geolocation.');
+	}
 
 
 	/*
