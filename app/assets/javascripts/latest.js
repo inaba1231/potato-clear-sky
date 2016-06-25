@@ -189,9 +189,11 @@ function initMap() {
 
       infoWindow.open(map);
       infoWindow.setPosition(pos);
-      infoWindow.setContent('Your current location.');
+      infoWindow.setContent("Your current location.");
     }, function() {
-    	return;
+    	infoWindow.open(map);
+      infoWindow.setPosition(map.getCenter());
+      infoWindow.setContent("Error: The Geolocation service failed.");
     });
   }
 
