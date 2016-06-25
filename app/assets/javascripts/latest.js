@@ -190,8 +190,8 @@ function initMap() {
       infoWindow.open(map);
       infoWindow.setPosition(pos);
       infoWindow.setContent("Your current location.");
-    }, function() {
-    	alert("Error: The Geolocation service failed.");
+    }, function(error) {
+    	alert(error);
     });
   } else {
   	alert("Your browser doesn't support geolocation.");
