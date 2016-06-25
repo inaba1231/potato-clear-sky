@@ -167,7 +167,8 @@ function initMap() {
     }
   );
 
-  var infoWindow = new google.maps.InfoWindow({map: map});
+  var infoWindow = new google.maps.InfoWindow();
+
 /*
   function handleLocationError(browserHasGeolocation, window, pos) {
 	  window.setPosition(pos);
@@ -177,7 +178,7 @@ function initMap() {
 	}
 */
 
-/*
+
   // Try HTML5 geolocation.
   if (navigator.geolocation) {
   	navigator.geolocation.getCurrentPosition(function(position) {
@@ -186,15 +187,13 @@ function initMap() {
         lng: position.coords.longitude
       };
 
+      infoWindow.open(map);
       infoWindow.setPosition(pos);
       infoWindow.setContent('Your current location.');
     }, function() {
-    	infoWindow.close;
+    	return;
     });
-  } else {
-    infoWindow.close;
   }
-*/
 
 	/*
 	var northeast = new google.maps.Marker({
