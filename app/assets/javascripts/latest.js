@@ -23,7 +23,7 @@ function initMap() {
   var heatmap_toggle = document.getElementById('heatmap_toggle');
 
   function opacity(is_checked) {
-  	if (is_checked) return 1;
+	if (is_checked) return 1;
   	else return 0.2;
   }
 
@@ -155,17 +155,45 @@ function initMap() {
   google.maps.event.addListener(map,
     'bounds_changed',
     function() {
-      var current_bound = map.getBounds();
-      var ne = current_bound.getNorthEast();
-      var sw = current_bound.getSouthWest();
-      var nw = new google.maps.LatLng(ne.lat(), sw.lng());
-      var se = new google.maps.LatLng(sw.lat(), ne.lng());
+      	var current_bound = map.getBounds();
+      	var ne = current_bound.getNorthEast();
+      	var sw = current_bound.getSouthWest();
+      	var nw = new google.maps.LatLng(ne.lat(), sw.lng());
+      	var se = new google.maps.LatLng(sw.lat(), ne.lng());
 
-      if(bounds.contains(ne) && bounds.contains(sw)
-        && bounds.contains(nw) && bounds.contains(se)) last_center[map.getZoom() - 1] = map.getCenter();
-      else map.setCenter(last_center[map.getZoom() - 1]);
+      	if(bounds.contains(ne) && bounds.contains(sw)
+           && bounds.contains(nw) && bounds.contains(se)) last_center[map.getZoom() - 1] = map.getCenter();
+      	else map.setCenter(last_center[map.getZoom() - 1]);
     }
   );
+
+  var infoWindow = new google.maps.InfoWindow({map: map});
+
+  // Try HTML5 geolocation.
+  if (navigator.geolocation) {
+  	navigator.geolocation.getCurrentPosition(function(position) {
+      var pos = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+      };
+
+      infoWindow.setPosition(pos);
+      infoWindow.setContent('Location found.');
+      map.setCenter(pos);
+    }, function() {
+    	handleLocationError(true, infoWindow, map.getCenter());
+    });
+  } else {
+    // Browser doesn't support Geolocation
+    handleLocationError(false, infoWindow, map.getCenter());
+  }
+
+	function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+	  infoWindow.setPosition(pos);
+	  infoWindow.setContent(browserHasGeolocation ?
+	                        'Error: The Geolocation service failed.' :
+	                        'Error: Your browser doesn\'t support geolocation.');
+
 
 	/*
 	var northeast = new google.maps.Marker({
