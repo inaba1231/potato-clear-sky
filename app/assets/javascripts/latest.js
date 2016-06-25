@@ -170,9 +170,9 @@ function initMap() {
   var infoWindow = new google.maps.InfoWindow();
 
 /*
-  function handleLocationError(browserHasGeolocation, window, pos) {
-	  window.setPosition(pos);
-	  window.setContent(browserHasGeolocation ?
+  function handleLocationError(browserHasGeolocation, info_window, pos) {
+	  info_window.setPosition(pos);
+	  info_window.setContent(browserHasGeolocation ?
 	                    "Error: The Geolocation service failed." :
 	                    "Error: Your browser doesn't support geolocation.");
 	}
@@ -191,10 +191,10 @@ function initMap() {
       infoWindow.setPosition(pos);
       infoWindow.setContent("Your current location.");
     }, function() {
-    	infoWindow.open(map);
-      infoWindow.setPosition(map.getCenter());
-      infoWindow.setContent("Error: The Geolocation service failed.");
+    	alert("Error: The Geolocation service failed.");
     });
+  } else {
+  	alert("Your browser doesn't support geolocation.");
   }
 
 	/*
