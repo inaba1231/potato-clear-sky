@@ -191,7 +191,7 @@ function initMap() {
       infoWindow.setPosition(pos);
       infoWindow.setContent("Your current location.");
     }, function(error) {
-    	alert(error.message);
+    	window.alert("blah");
     });
   } else {
   	alert("Your browser doesn't support geolocation.");
