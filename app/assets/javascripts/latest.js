@@ -137,6 +137,7 @@ function initMap() {
       }, function(response, status) {
         if (status === google.maps.DirectionsStatus.OK) {
         	directionsDisplay.setOptions({
+        		draggable: true,
 						suppressPolylines: !route_toggle.checked
 					});
           directionsDisplay.setDirections(response);
