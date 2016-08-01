@@ -24,7 +24,7 @@ function initMap() {
 
   function opacity(is_checked) {
 	if (is_checked) return 1;
-  	else return 0.2;
+  	else return 0.5;
   }
 
 	heatmap_toggle.addEventListener('click', function() {
